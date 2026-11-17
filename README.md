@@ -19,10 +19,11 @@ Chrome, Slack, Discord, Spotify, Lens, zsh/oh-my-zsh, et les fixes Electron/Wayl
 ## À faire AVANT
 
 1. **Mot de passe** — *rien à faire*. Aucun mot de passe n'est stocké dans le fichier :
-   la section `identity` est marquée interactive, l'installeur le demande à la main.
+   pas de bloc `identity` (le schéma exige un password), l'installeur demande
+   nom, hostname, username et mot de passe à la main.
    C'est ce qui rend le fichier **sûr à stocker publiquement** (pas de hash exposé).
-   > Garder le `username: jules` — le script de setup s'appuie dessus.
-2. Vérifier `hostname` / `username` / `locale` / clavier dans `autoinstall.yaml`.
+   > Saisir le username `jules` — le script de setup s'appuie dessus.
+2. Vérifier `locale` / clavier dans `autoinstall.yaml`.
 3. **Slack** est épinglé à une version (`4.49.89`). Mettre à jour l'URL si besoin
    depuis https://slack.com/downloads/linux
 4. **Clé Spotify** : si l'install échoue sur une erreur `NO_PUBKEY`, la clé a tourné.
