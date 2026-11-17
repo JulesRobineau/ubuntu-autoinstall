@@ -9,8 +9,7 @@
 #                               (réseau dispo) : dépôts, apps, dconf, zsh, fonts...
 #
 # AVANT USAGE :
-#   1. Générer un hash de mot de passe :  mkpasswd -m sha-512
-#      (ou : openssl passwd -6) et le coller dans identity.password
+#   1. Mot de passe : rien à faire, l'installeur le demande (section identity interactive)
 #   2. Adapter hostname / username / locale / clavier si besoin
 #   3. Voir README.md pour fabriquer le média d'installation
 # =============================================================================
