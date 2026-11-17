@@ -1,6 +1,6 @@
 #cloud-config
 # =============================================================================
-# Ubuntu 26.04 Desktop - Autoinstall
+# Ubuntu 26.04 Desktop - Autoinstall (variante Lenovo : client remote vers le Legion)
 # Reproduit l'environnement de Jules (GNOME minimal/dark, dev Go/DevSecOps).
 #
 # Sections :
@@ -40,7 +40,7 @@ autoinstall:
   # Pré-rempli (hostname / nom / username) mais SANS mot de passe :
   # la section est marquée interactive, l'installeur demandera le mot de passe.
   identity:
-    hostname: jules-legion
+    hostname: jules-lenovo
     realname: Jules Robineau
     username: jules
 
@@ -61,6 +61,8 @@ autoinstall:
     - pipx            # pour installer gnome-extensions-cli (gext)
     - apt-transport-https
     - ca-certificates
+    - remmina                      # client RDP vers le Legion
+    - remmina-plugin-rdp
 
   # ---- Snaps (on reste minimal ; tout le reste passe par .deb/dépôts apt) ----
   snaps: []
@@ -289,6 +291,9 @@ autoinstall:
             "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.12.7/obsidian_1.12.7_amd64.deb" || true
           apt-get install -y "$TMP/discord.deb" "$TMP/slack.deb" "$TMP/obsidian.deb" || true
           rm -rf "$TMP"
+
+          # ---- Tailscale (accès au Legion) ; `sudo tailscale up` à faire à la main ----
+          curl -fsSL https://tailscale.com/install.sh | sh
 
           # ---- Starship (prompt) ----
           curl -fsSL https://starship.rs/install.sh | sh -s -- -y -b /usr/local/bin
