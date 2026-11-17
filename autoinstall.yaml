@@ -16,9 +16,7 @@
 autoinstall:
   version: 1
 
-  # Tout est non-interactif SAUF la création d'utilisateur :
-  # l'installeur demandera le mot de passe à la main (pas de hash stocké).
-  # NB : garder le username "jules" — le script de setup s'appuie dessus.
+  # Tout est non-interactif SAUF la création d'utilisateur (saisie manuelle).
   interactive-sections:
     - identity
 
@@ -37,12 +35,9 @@ autoinstall:
   codecs:
     install: true
 
-  # Pré-rempli (hostname / nom / username) mais SANS mot de passe :
-  # la section est marquée interactive, l'installeur demandera le mot de passe.
-  identity:
-    hostname: jules-legion
-    realname: Jules Robineau
-    username: jules
+  # Pas de bloc identity : le schéma exige un password, on n'en stocke pas.
+  # L'installeur demande tout à la main. Username OBLIGATOIREMENT "jules"
+  # (le script de setup s'appuie dessus).
 
   ssh:
     install-server: false
